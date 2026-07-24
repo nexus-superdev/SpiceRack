@@ -121,7 +121,12 @@ function displayIcons(results){
 
     `;
 
-    card.onclick = function(){ selectIcon(icon); };
+    //card.onclick = function(){ selectIcon(icon); };
+
+      card.onclick = function(){
+    console.log("CARD CLICK", icon);
+    selectIcon(icon);
+};
 
     container.appendChild(card);
   });
@@ -151,3 +156,8 @@ document
       if(event.key === "Enter"){ search(); }
     }
 );
+
+function selectIcon(icon){ 
+  console.log("ICON CLICK", icon);
+  showMessage("Selected Icon: " + icon.name); 
+}
