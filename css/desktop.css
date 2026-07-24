@@ -1,17 +1,13 @@
 @media (min-width:701px){
 
+  #searchForm{
+    margin-top:24px;
+  }
+    
   .search-button{
     position:relative;
     overflow:hidden;
-
-    /*
-    transition:
-      width .25s ease,
-      background .2s,
-      box-shadow .2s,
-      transform  .1s;
-    */
-     width:120px;
+    width:120px;
     transition: all .60s cubic-bezier(.22,.61,.36,1);
   }
 
@@ -50,7 +46,7 @@
 
   .search-button.loading {
     width:160px;
-}
+  }
  
 
 }
