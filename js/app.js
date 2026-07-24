@@ -176,4 +176,3 @@ document
       if(event.key === "Enter"){ search(); }
     }
 );
-
