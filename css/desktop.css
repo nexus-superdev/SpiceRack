@@ -47,6 +47,10 @@
   .search-button.loading {
     width:160px;
   }
- 
+
+  .button-text{
+  display:inline-block;
+  transition:opacity .25s ease;
+}
 
 }
