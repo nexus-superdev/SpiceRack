@@ -11,9 +11,19 @@ function showLoading(){
     const label = button.querySelector(".button-label");
     const dots = button.querySelector(".button-dots");
 
-    button.dataset.width = button.offsetWidth + "px";
+   // button.dataset.width = button.offsetWidth + "px";
+
+    //button.style.width = "160px";
+
+    button.style.width = button.offsetWidth + "px";
+
+button.offsetHeight;
+
+requestAnimationFrame(() => {
 
     button.style.width = "160px";
+
+});
 
     label.textContent = "Searching";
 
