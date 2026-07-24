@@ -1,8 +1,6 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbwuRjDpfQqEWOs2OvaFDkPEYYgmxELuQrElxCeOkIKo024HyQA-Sil4cLDzgOUlzaG9sg/exec";
 
 
-
-
 let loadingInterval;
 
 
@@ -42,7 +40,6 @@ function hideLoading(){
 }
 
 
-
 function search(){
 
     const query =
@@ -51,18 +48,11 @@ function search(){
         .value
         .trim();
 
-
-    if(!query){
-        return;
-    }
-
+    if(!query){ return; }
 
     showLoading();
 
-
-    const script =
-        document.createElement("script");
-
+    const script = document.createElement("script");
 
     script.src =
         API_URL +
@@ -70,12 +60,23 @@ function search(){
         encodeURIComponent(query) +
         "&callback=displayIcons";
 
+    script.onload = function(){
 
+        // Lo script è stato caricato.
+        // hideLoading() verrà chiamata da displayIcons().
+
+        script.remove();
+
+    };
+
+    script.onerror = function(){
+        hideLoading();
+        showMessage("Errore durante la ricerca.");
+        script.remove();
+    };
+    
     document.body.appendChild(script);
-
 }
-
-
 
 
 function displayIcons(results){
@@ -121,7 +122,6 @@ function showMessage(text){
   msg.classList.add("visible");
 
   setTimeout(()=>{ msg.classList.remove("visible"); },2000);
-
 }
 
 
