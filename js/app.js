@@ -110,27 +110,27 @@ function displayIcons(results){
     card.className = "icon-card";
 
     card.innerHTML = `
-
         <img src="${icon.url}">
-
         <div class="icon-name">
-
             ${icon.name}
-
         </div>
-
     `;
 
-    //card.onclick = function(){ selectIcon(icon); };
+    console.log("CREO CARD", icon.name);
 
-      card.onclick = function(){
-    console.log("CARD CLICK", icon);
-    selectIcon(icon);
-};
+    card.addEventListener("click", function(event){
+
+        console.log("CLICK CARD", icon.name);
+
+        event.stopPropagation();
+
+        selectIcon(icon);
+
+    });
 
     container.appendChild(card);
-  });
-}
+
+});}
 
 
 function selectIcon(icon){ showMessage("Selected Icon: " + icon.name); }
