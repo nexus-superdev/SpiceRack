@@ -96,41 +96,45 @@ console.log("SEARCH PARTITA");
 
 
 function displayIcons(results){
- console.log("DISPLAY ICONS", results);
-  hideLoading();  
-    
-  const container = document.getElementById("results");
 
-  container.innerHTML = "";
+    console.log("DISPLAY ICONS", results);
 
-  results.forEach(icon => {
+    const container = document.getElementById("results");
 
-    const card = document.createElement("div");
+    container.innerHTML = "";
 
-    card.className = "icon-card";
+    results.forEach(icon => {
 
-    card.innerHTML = `
-        <img src="${icon.url}">
-        <div class="icon-name">
-            ${icon.name}
-        </div>
-    `;
+        const card = document.createElement("div");
 
-    console.log("CREO CARD", icon.name);
+        card.className = "icon-card";
 
-    card.addEventListener("click", function(event){
+        card.style.cursor = "pointer";
+        card.style.border = "3px solid red";
 
-        console.log("CLICK CARD", icon.name);
+        card.innerHTML = `
+            <img src="${icon.url}">
+            <div>${icon.name}</div>
+        `;
 
-        event.stopPropagation();
 
-        selectIcon(icon);
+        card.addEventListener("click", function(){
+
+            console.log("!!! CARD CLICK !!!", icon.name);
+
+            alert(icon.name);
+
+        });
+
+
+        console.log("APPENDO CARD", card);
+
+
+        container.appendChild(card);
 
     });
 
-    container.appendChild(card);
-
-});}
+}
 
 
 function selectIcon(icon){ showMessage("Selected Icon: " + icon.name); }
