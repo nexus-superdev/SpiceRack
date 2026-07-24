@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Icon Picker</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/mobile.css">
+  </head>
+
+  <body>
+
+    <header class="top-bar">
+      <div class="title">
+          Icon Picker
+      </div>
+    </header>
+
+    <main class="app-container">
+      <section class="search-area">
+        <input
+          id="searchBox"
+          type="search"
+          placeholder="Cerca icone..."
+          autocomplete="off"
+        >
+
+        <button
+          id="searchButton"
+          class="search-button"
+          onclick="search()">
+
+          Cerca
+
+        </button>
+      </section>
+
+      <section
+        id="results"
+        class="icon-gallery">
+
+        <div id="message"></div>
+      </section>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+
+</html>
