@@ -67,11 +67,14 @@ async function search(){
 }
 */
 
-async function search(){
-console.log("SEARCH PARTITA");
-    const input = document.getElementById("searchBox");
+function search(){
 
-    const query = input.value.trim();
+    const query =
+        document
+        .getElementById("searchBox")
+        .value
+        .trim();
+
 
     if(!query){
         return;
@@ -81,59 +84,21 @@ console.log("SEARCH PARTITA");
     showLoading();
 
 
-    try {
+    const script =
+        document.createElement("script");
 
 
-        const url =
-            API_URL +
-            "?query=" +
-            encodeURIComponent(query);
+    script.src =
+        API_URL +
+        "?query=" +
+        encodeURIComponent(query) +
+        "&callback=displayIcons";
 
 
-        console.log("Chiamata:", url);
-
-
-        const response = await fetch(url);
-
-
-        console.log("Status:", response.status);
-
-
-        const text = await response.text();
-
-
-        console.log("Risposta:", text);
-
-
-        const results = JSON.parse(text);
-
-
-        displayIcons(results);
-
-
-    }
-
-
-    catch(error){
-
-
-        console.error("ERRORE:", error);
-
-        showMessage(
-            "Errore durante la ricerca"
-        );
-
-
-    }
-
-
-    finally{
-
-        hideLoading();
-
-    }
+    document.body.appendChild(script);
 
 }
+
 
 
 
