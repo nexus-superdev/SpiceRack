@@ -6,6 +6,8 @@ let loadingInterval;
 
 function showLoading(){
 
+    document.body.classList.add("loading");
+
     const button = document.getElementById("searchButton");
 
     const label = button.querySelector(".button-label");
