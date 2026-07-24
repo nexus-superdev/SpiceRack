@@ -121,13 +121,15 @@ function displayIcons(results){
         console.log("CREATED", icon.name);
 
 
-        card.addEventListener("click", () => {
+        card.addEventListener("click", function(e){
 
-            console.log("CLICKED", icon.name);
+    console.log("TARGET:", e.target);
+    console.log("CURRENT:", e.currentTarget);
+    console.log("ICON:", icon);
 
-            selectIcon(icon);
+    selectIcon(icon);
 
-        });
+});
 
 
         container.appendChild(card);
