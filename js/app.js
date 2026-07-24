@@ -4,7 +4,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwuRjDpfQqEWOs2OvaFDkPE
 let loadingInterval;
 
 
-ffunction showLoading(){
+function showLoading(){
 
     const button = document.getElementById("searchButton");
 
