@@ -1,7 +1,7 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbwuRjDpfQqEWOs2OvaFDkPEYYgmxELuQrElxCeOkIKo024HyQA-Sil4cLDzgOUlzaG9sg/exec";
 
 
-let loadingInterval;
+
 
 
 function showLoading(){
@@ -29,53 +29,42 @@ function showLoading(){
     }
 
 
-    const button = document.getElementById("searchButton");
+    const text = button.querySelector(".button-text");
 
-    const label = button.querySelector(".button-label");
-    const dots = button.querySelector(".button-dots");
+text.style.opacity = "0";
 
-    button.dataset.width = button.offsetWidth + "px";
+setTimeout(()=>{
 
-    button.style.width = "160px";
+    text.textContent = "Searching...";
 
-    label.textContent = "Searching";
+    text.style.opacity = "1";
 
-
-    let count = 0;
-
-    loadingInterval = setInterval(()=>{
-
-        count++;
-
-        if(count > 3){
-            count = 0;
-        }
-
-        dots.textContent = ".".repeat(count);
-
-    },400);
+},250);
 
 
     button.disabled = true;
 
-}
+}                        
 
 
 function hideLoading(){
 
     document.body.classList.remove("loading");
-    
-    clearInterval(loadingInterval);
 
     const button = document.getElementById("searchButton");
+    
 
-    const label = button.querySelector(".button-label");
-    const dots = button.querySelector(".button-dots");
+    const text = button.querySelector(".button-text");
 
-    label.textContent = "Search";
-    dots.textContent = "";
+text.style.opacity = "0";
 
-    button.style.width = button.dataset.width;
+setTimeout(()=>{
+
+    text.textContent = "Search";
+
+    text.style.opacity = "1";
+
+},250);
 
     button.disabled = false;
 }
