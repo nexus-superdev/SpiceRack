@@ -3,7 +3,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwuRjDpfQqEWOs2OvaFDkPE
 
 let loadingInterval;
 
-
+/*
 function showLoading(){
 
     document.body.classList.add("loading");
@@ -35,11 +35,69 @@ function showLoading(){
 
     button.disabled = true;
 }
+*/
 
+function showLoading(){
+
+    document.body.classList.add("loading");
+
+
+    if(window.innerWidth <= 700){
+
+        const container = document.getElementById("results");
+
+        container.innerHTML = "";
+
+        for(let i = 0; i < 9; i++){
+
+            const card = document.createElement("div");
+
+            card.className = "icon-card";
+
+            container.appendChild(card);
+
+        }
+
+        return;
+    }
+
+
+    const button = document.getElementById("searchButton");
+
+    const label = button.querySelector(".button-label");
+    const dots = button.querySelector(".button-dots");
+
+    button.dataset.width = button.offsetWidth + "px";
+
+    button.style.width = "160px";
+
+    label.textContent = "Searching";
+
+
+    let count = 0;
+
+    loadingInterval = setInterval(()=>{
+
+        count++;
+
+        if(count > 3){
+            count = 0;
+        }
+
+        dots.textContent = ".".repeat(count);
+
+    },400);
+
+
+    button.disabled = true;
+
+}
 
 
 function hideLoading(){
 
+    document.body.classList.remove("loading");
+    
     clearInterval(loadingInterval);
 
     const button = document.getElementById("searchButton");
