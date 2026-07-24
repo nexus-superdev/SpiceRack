@@ -11,6 +11,7 @@
       box-shadow .2s,
       transform  .1s;
     */
+     width:120px;
     transition: all .60s cubic-bezier(.22,.61,.36,1);
   }
 
@@ -47,6 +48,9 @@
     color:transparent;
   }
 
+  .search-button.loading {
+    width:160px;
+}
  
 
 }
