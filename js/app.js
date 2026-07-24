@@ -41,7 +41,8 @@ function hideLoading(){
 
 
 function search(){
-
+console.log("SEARCH PARTITA");
+    
     const query =
         document
         .getElementById("searchBox")
@@ -51,7 +52,6 @@ function search(){
     if(!query){ return; }
 
     showLoading();
-console.log("showLoading");
 
     const script = document.createElement("script");
 
@@ -71,10 +71,7 @@ console.log("showLoading");
     };
 
     script.onerror = function(){
-        hideLoading();
-console.log("hideLoading");
-
-        
+        hideLoading();        
         showMessage("Errore durante la ricerca.");
         script.remove();
     };
@@ -84,8 +81,7 @@ console.log("hideLoading");
 
 
 function displayIcons(results){
-  console.log("DISPLAY ICONS");  
-
+ console.log("DISPLAY ICONS", results);
   hideLoading();  
     
   const container = document.getElementById("results");
