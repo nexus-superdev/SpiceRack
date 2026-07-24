@@ -40,8 +40,8 @@
     align-items:center;
     justify-content:center;
     pointer-events:none;
-    background:#5b9cf3;
-    color:transparent;
+    /*background:#5b9cf3;
+    color:transparent;*/
   }
 
   .search-button.loading {
