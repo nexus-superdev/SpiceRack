@@ -4,11 +4,14 @@
     position:relative;
     overflow:hidden;
 
+    /*
     transition:
       width .25s ease,
       background .2s,
       box-shadow .2s,
       transform  .1s;
+    */
+    transition: all .45s cubic-bezier(.22,.61,.36,1);
   }
 
   .search-button:hover{
