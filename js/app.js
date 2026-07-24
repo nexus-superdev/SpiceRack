@@ -68,7 +68,7 @@ async function search(){
 */
 
 async function search(){
-
+console.log("SEARCH PARTITA");
     const input = document.getElementById("searchBox");
 
     const query = input.value.trim();
