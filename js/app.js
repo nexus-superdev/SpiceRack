@@ -80,6 +80,7 @@ function search(){
 
 
 function displayIcons(results){
+  console.log("DISPLAY ICONS");  
 
   hideLoading();  
     
