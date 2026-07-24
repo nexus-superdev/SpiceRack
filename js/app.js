@@ -4,54 +4,55 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwuRjDpfQqEWOs2OvaFDkPE
 let loadingInterval;
 
 
-function showLoading(){
+ffunction showLoading(){
 
-    const button = document.querySelector(".search-button");
+    const button = document.getElementById("searchButton");
 
-    button.dataset.text = button.innerHTML;
+    const label = button.querySelector(".button-label");
+    const dots = button.querySelector(".button-dots");
+
     button.dataset.width = button.offsetWidth + "px";
 
     button.style.width = "160px";
 
-    button.innerHTML = `
-        <span class="searching-text">Searching</span><span class="searching-dots"></span>
-    `;
+    label.textContent = "Searching";
 
-    const dotsElement = button.querySelector(".searching-dots");
-
-    let dots = 0;
+    let count = 0;
 
     loadingInterval = setInterval(()=>{
 
-        dots++;
+        count++;
 
-        if(dots > 3){
-            dots = 0;
+        if(count > 3){
+            count = 0;
         }
 
-        dotsElement.textContent = ".".repeat(dots);
+        dots.textContent = ".".repeat(count);
 
-    },500);
-
+    },400);
 
     button.disabled = true;
-
 }
+
 
 
 function hideLoading(){
 
     clearInterval(loadingInterval);
 
-    const button = document.querySelector(".search-button");
+    const button = document.getElementById("searchButton");
 
-    button.innerHTML = button.dataset.text;
+    const label = button.querySelector(".button-label");
+    const dots = button.querySelector(".button-dots");
+
+    label.textContent = "Search";
+    dots.textContent = "";
 
     button.style.width = button.dataset.width;
 
     button.disabled = false;
-
 }
+
 
 
 function search(){
