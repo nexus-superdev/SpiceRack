@@ -51,6 +51,7 @@ function search(){
     if(!query){ return; }
 
     showLoading();
+console.log("showLoading");
 
     const script = document.createElement("script");
 
@@ -71,6 +72,9 @@ function search(){
 
     script.onerror = function(){
         hideLoading();
+console.log("hideLoading");
+
+        
         showMessage("Errore durante la ricerca.");
         script.remove();
     };
