@@ -118,25 +118,20 @@ function displayIcons(results){
             </div>
         `;
 
-        console.log("CREATED", icon.name);
+        card.addEventListener("click", function(){
 
+            console.log("CARD CLICK", icon.name);
 
-        card.addEventListener("click", function(e){
+            alert(icon.name);
 
-    console.log("TARGET:", e.target);
-    console.log("CURRENT:", e.currentTarget);
-    console.log("ICON:", icon);
-
-    selectIcon(icon);
-
-});
-
+        });
 
         container.appendChild(card);
 
     });
 
 }
+
 
 
 function selectIcon(icon){ showMessage("Selected Icon: " + icon.name); }
