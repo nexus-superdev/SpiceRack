@@ -3,39 +3,6 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwuRjDpfQqEWOs2OvaFDkPE
 
 let loadingInterval;
 
-/*
-function showLoading(){
-
-    document.body.classList.add("loading");
-
-    const button = document.getElementById("searchButton");
-
-    const label = button.querySelector(".button-label");
-    const dots = button.querySelector(".button-dots");
-
-    button.dataset.width = button.offsetWidth + "px";
-
-    button.style.width = "160px";
-
-    label.textContent = "Searching";
-
-    let count = 0;
-
-    loadingInterval = setInterval(()=>{
-
-        count++;
-
-        if(count > 3){
-            count = 0;
-        }
-
-        dots.textContent = ".".repeat(count);
-
-    },400);
-
-    button.disabled = true;
-}
-*/
 
 function showLoading(){
 
