@@ -2,12 +2,9 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwuRjDpfQqEWOs2OvaFDkPE
 
 
 
-
-
 function showLoading(){
 
     document.body.classList.add("loading");
-
 
     if(window.innerWidth <= 700){
 
@@ -28,24 +25,20 @@ function showLoading(){
         return;
     }
 
-const button = document.getElementById("searchButton");
-
+    const button = document.getElementById("searchButton");
     const text = button.querySelector(".button-text");
 
-text.style.opacity = "0";
+    // Salva la larghezza corrente
+    button.dataset.width = button.offsetWidth + "px";
 
-setTimeout(()=>{
+    // Espande il bottone
+    button.style.width = "160px";
 
+    // Cambia il testo
     text.textContent = "Searching...";
 
-    text.style.opacity = "1";
-
-},250);
-
-
     button.disabled = true;
-
-}                        
+}
 
 
 function hideLoading(){
@@ -53,23 +46,16 @@ function hideLoading(){
     document.body.classList.remove("loading");
 
     const button = document.getElementById("searchButton");
-    
-
     const text = button.querySelector(".button-text");
 
-text.style.opacity = "0";
-
-setTimeout(()=>{
-
+    // Ripristina il testo
     text.textContent = "Search";
 
-    text.style.opacity = "1";
-
-},250);
+    // Ripristina la larghezza originale
+    button.style.width = button.dataset.width;
 
     button.disabled = false;
 }
-
 
 
 function search(){
