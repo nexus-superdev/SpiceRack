@@ -19,6 +19,12 @@
     transform:scale(.98);
   }
 
+  .search-button:disabled{
+    opacity:.85;
+    cursor:wait;
+  }
+
+
   .loading .search-button{
     position:relative;
     align-items:center;
