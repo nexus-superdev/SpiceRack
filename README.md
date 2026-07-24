@@ -1,0 +1,2 @@
+# SpiceRack
+Icon Picker
