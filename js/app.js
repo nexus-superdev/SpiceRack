@@ -81,6 +81,8 @@ function search(){
 
 function displayIcons(results){
 
+  hideLoading();  
+    
   const container = document.getElementById("results");
 
   container.innerHTML = "";
