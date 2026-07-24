@@ -28,6 +28,16 @@
     cursor:wait;
   }
 
+  .searching-text{
+    display:inline-block;
+  }
+
+  .searching-dots{
+    display:inline-block;
+    width:20px;
+    text-align:left;
+  }
+
   .loading .search-button{
     position:relative;
     align-items:center;
