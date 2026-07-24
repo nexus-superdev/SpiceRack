@@ -3,70 +3,45 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwuRjDpfQqEWOs2OvaFDkPE
 
 
 
+let loadingInterval;
+
+
 function showLoading(){
 
-  document.body.classList.add("loading");
+    const button = document.querySelector(".search-button");
 
+    button.dataset.text = button.innerHTML;
 
-  if(window.innerWidth <= 700){
+    let dots = 0;
 
-    const container = document.getElementById("results");
+    button.innerHTML = "Searching";
 
-    container.innerHTML = "";
+    loadingInterval = setInterval(()=>{
 
+        dots++;
 
-    for(let i = 0; i < 9; i++){
+        if(dots > 3){ dots = 0 }
 
-        const card = document.createElement("div");
+        button.innerHTML = "Searching" + ".".repeat(dots);
 
-        card.className = "icon-card";
+    },400);
 
-        container.appendChild(card);
-
-    }
-  }
+    button.disabled = true;
 }
 
 
-function hideLoading(){ document.body.classList.remove("loading"); }
+function hideLoading(){
 
-/*
-async function search(){
+    clearInterval(loadingInterval);
 
-  const input = document.getElementById("searchBox");
+    const button = document.querySelector(".search-button");
 
-  const query = input.value.trim();
+    button.innerHTML = button.dataset.text;
 
-  if(!query){ return; }
-
-  showLoading();
-
-  try {
-
-    const response = await fetch(
-
-        API_URL +
-        "?query=" +
-        encodeURIComponent(query)
-
-    );
-
-    const results = await response.json();
-
-    displayIcons(results);
-
-  }
-
-  catch(error){
-
-      console.error(error);
-      showMessage("An error occured during the search.");
-
-  }
-
-  finally{ hideLoading(); }
+    button.disabled = false;
 }
-*/
+
+
 
 function search(){
 
