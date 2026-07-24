@@ -10,27 +10,32 @@ function showLoading(){
 
     button.dataset.text = button.innerHTML;
     button.dataset.width = button.offsetWidth + "px";
+
     button.style.width = "160px";
 
-    button.innerHTML =
-    `
-    <span class="loading-text">Searching</span><span class="loading-dots"></span>
+    button.innerHTML = `
+        <span class="searching-text">Searching</span><span class="searching-dots"></span>
     `;
-    
-    const dots = button.querySelector(".loading-dots");
-    
-    let count = 0;
-    
+
+    const dotsElement = button.querySelector(".searching-dots");
+
+    let dots = 0;
+
     loadingInterval = setInterval(()=>{
-    
-        count = (count + 1) % 4;
-    
-        dots.textContent = ".".repeat(count);
-    
-    },400);
+
+        dots++;
+
+        if(dots > 3){
+            dots = 0;
+        }
+
+        dotsElement.textContent = ".".repeat(dots);
+
+    },500);
 
 
     button.disabled = true;
+
 }
 
 
@@ -45,6 +50,7 @@ function hideLoading(){
     button.style.width = button.dataset.width;
 
     button.disabled = false;
+
 }
 
 
