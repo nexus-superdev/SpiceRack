@@ -20,11 +20,6 @@
     transform:scale(.98);
   }
 
-  .search-button:disabled{
-    opacity:.85;
-    cursor:wait;
-  }
-
   .searching-text{
     display:inline-block;
   }
@@ -40,8 +35,6 @@
     align-items:center;
     justify-content:center;
     pointer-events:none;
-    /*background:#5b9cf3;
-    color:transparent;*/
   }
 
   .search-button.loading {
