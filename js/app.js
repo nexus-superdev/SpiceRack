@@ -99,6 +99,8 @@ function displayIcons(results){
 
     console.log("DISPLAY ICONS", results);
 
+    hideLoading();
+
     const container = document.getElementById("results");
 
     container.innerHTML = "";
@@ -109,26 +111,20 @@ function displayIcons(results){
 
         card.className = "icon-card";
 
-        card.style.cursor = "pointer";
-        card.style.border = "3px solid red";
-
         card.innerHTML = `
             <img src="${icon.url}">
-            <div>${icon.name}</div>
+            <div class="icon-name">
+                ${icon.name}
+            </div>
         `;
-
 
         card.addEventListener("click", function(){
 
-            console.log("!!! CARD CLICK !!!", icon.name);
+            console.log("CARD CLICK", icon);
 
-            alert(icon.name);
+            selectIcon(icon);
 
         });
-
-
-        console.log("APPENDO CARD", card);
-
 
         container.appendChild(card);
 
