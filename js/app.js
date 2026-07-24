@@ -29,7 +29,7 @@ function showLoading(){
 
 function hideLoading(){ document.body.classList.remove("loading"); }
 
-
+/*
 async function search(){
 
   const input = document.getElementById("searchBox");
@@ -65,6 +65,76 @@ async function search(){
 
   finally{ hideLoading(); }
 }
+*/
+
+async function search(){
+
+    const input = document.getElementById("searchBox");
+
+    const query = input.value.trim();
+
+    if(!query){
+        return;
+    }
+
+
+    showLoading();
+
+
+    try {
+
+
+        const url =
+            API_URL +
+            "?query=" +
+            encodeURIComponent(query);
+
+
+        console.log("Chiamata:", url);
+
+
+        const response = await fetch(url);
+
+
+        console.log("Status:", response.status);
+
+
+        const text = await response.text();
+
+
+        console.log("Risposta:", text);
+
+
+        const results = JSON.parse(text);
+
+
+        displayIcons(results);
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error("ERRORE:", error);
+
+        showMessage(
+            "Errore durante la ricerca"
+        );
+
+
+    }
+
+
+    finally{
+
+        hideLoading();
+
+    }
+
+}
+
 
 
 function displayIcons(results){
