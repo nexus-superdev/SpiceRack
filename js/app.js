@@ -150,7 +150,3 @@ document
     }
 );
 
-function selectIcon(icon){ 
-  console.log("ICON CLICK", icon);
-  showMessage("Selected Icon: " + icon.name); 
-}
