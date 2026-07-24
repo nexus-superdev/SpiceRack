@@ -118,13 +118,17 @@ function displayIcons(results){
             </div>
         `;
 
-        card.addEventListener("click", function(){
+        console.log("CREATED", icon.name);
 
-            console.log("CARD CLICK", icon);
+
+        card.addEventListener("click", () => {
+
+            console.log("CLICKED", icon.name);
 
             selectIcon(icon);
 
         });
+
 
         container.appendChild(card);
 
