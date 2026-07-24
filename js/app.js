@@ -12,19 +12,23 @@ function showLoading(){
     button.dataset.width = button.offsetWidth + "px";
     button.style.width = "160px";
 
-    let dots = 0;
-
-    button.innerHTML = "Searching";
-
+    button.innerHTML =
+    `
+    <span class="loading-text">Searching</span><span class="loading-dots"></span>
+    `;
+    
+    const dots = button.querySelector(".loading-dots");
+    
+    let count = 0;
+    
     loadingInterval = setInterval(()=>{
-
-        dots++;
-
-        if(dots > 3){ dots = 0 }
-
-        button.innerHTML = "Searching" + ".".repeat(dots);
-
+    
+        count = (count + 1) % 4;
+    
+        dots.textContent = ".".repeat(count);
+    
     },400);
+
 
     button.disabled = true;
 }
