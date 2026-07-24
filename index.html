@@ -21,11 +21,13 @@
     </header>
 
     <main class="app-container">
-      <section class="search-area">
+      <form id="searchForm" onsubmit="event.preventDefault(); search();">
+
         <input
           id="searchBox"
+          class="search-box"
           type="search"
-          placeholder="Cerca icone..."
+          placeholder="Search icons..."
           autocomplete="off"
         >
 
@@ -37,7 +39,7 @@
           Cerca
 
         </button>
-      </section>
+       </form>
 
       <section
         id="results"
