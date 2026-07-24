@@ -9,6 +9,8 @@ function showLoading(){
     const button = document.querySelector(".search-button");
 
     button.dataset.text = button.innerHTML;
+    button.dataset.width = button.offsetWidth + "px";
+    button.style.width = "160px";
 
     let dots = 0;
 
@@ -35,6 +37,8 @@ function hideLoading(){
     const button = document.querySelector(".search-button");
 
     button.innerHTML = button.dataset.text;
+
+    button.style.width = button.dataset.width;
 
     button.disabled = false;
 }
