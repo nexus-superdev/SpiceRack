@@ -8,30 +8,37 @@ function showLoading(){
 
     const button = document.getElementById("searchButton");
 
-    const label = button.querySelector(".button-label");
-    const dots = button.querySelector(".button-dots");
+    button.classList.add("loading");
 
-    button.dataset.width = button.offsetWidth + "px";
 
-    button.style.width = "160px";
+    button.querySelector(".button-text").style.display="none";
 
-    label.textContent = "Searching";
+    button.querySelector(".loading-text").style.display="inline";
 
-    let count = 0;
+
+    let dots = 0;
+
+    const dotsElement =
+        button.querySelector(".dots");
+
 
     loadingInterval = setInterval(()=>{
 
-        count++;
+        dots++;
 
-        if(count > 3){
-            count = 0;
+        if(dots > 3){
+            dots = 0;
         }
 
-        dots.textContent = ".".repeat(count);
+        dotsElement.textContent =
+            ".".repeat(dots);
+
 
     },400);
 
-    button.disabled = true;
+
+    button.disabled=true;
+
 }
 
 
@@ -40,18 +47,26 @@ function hideLoading(){
 
     clearInterval(loadingInterval);
 
-    const button = document.getElementById("searchButton");
 
-    const label = button.querySelector(".button-label");
-    const dots = button.querySelector(".button-dots");
+    const button =
+        document.getElementById("searchButton");
 
-    label.textContent = "Search";
-    dots.textContent = "";
 
-    button.style.width = button.dataset.width;
+    button.classList.remove("loading");
 
-    button.disabled = false;
+
+    button.querySelector(".button-text").style.display="inline";
+
+    button.querySelector(".loading-text").style.display="none";
+
+
+    button.querySelector(".dots").textContent="";
+
+
+    button.disabled=false;
+
 }
+
 
 
 
