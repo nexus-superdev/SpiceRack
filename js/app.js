@@ -28,6 +28,7 @@ function showLoading(){
         return;
     }
 
+const button = document.getElementById("searchButton");
 
     const text = button.querySelector(".button-text");
 
