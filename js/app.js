@@ -6,11 +6,13 @@ function showLoading(){
 
     document.body.classList.add("loading");
 
-    if(window.innerWidth <= 700){
-
-        const container = document.getElementById("results");
+    const container = document.getElementById("results");
 
         container.innerHTML = "";
+
+    if(window.innerWidth <= 700){
+
+        
 
         for(let i = 0; i < 9; i++){
 
