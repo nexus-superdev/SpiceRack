@@ -9,13 +9,15 @@ function showLoading(){
 
     const container = document.getElementById("results");
 
-    
+    const cards = container.querySelectorAll(".icon-card");
 
     cards.forEach(card => {
         card.classList.add("fade-out");
     });
 
-    
+    clearResultsTimeout = setTimeout(() => {
+        container.innerHTML = "";
+    }, 250);
 
 
     if(window.innerWidth <= 700){
@@ -33,11 +35,9 @@ function showLoading(){
         return;
     }
 
-    const cards = container.querySelectorAll(".icon-card");
+    
 
-    clearResultsTimeout = setTimeout(() => {
-        container.innerHTML = "";
-    }, 250);
+    
 
     const button = document.getElementById("searchButton");
     const text = button.querySelector(".button-text");
