@@ -15,9 +15,7 @@ function showLoading(){
         card.classList.add("fade-out");
     });
 
-    clearResultsTimeout = setTimeout(() => {
-        container.innerHTML = "";
-    }, 250);
+    
 
 
     if(window.innerWidth <= 700){
@@ -35,16 +33,16 @@ function showLoading(){
         return;
     }
 
+    clearResultsTimeout = setTimeout(() => {
+        container.innerHTML = "";
+    }, 250);
 
     const button = document.getElementById("searchButton");
     const text = button.querySelector(".button-text");
 
     button.dataset.width = button.offsetWidth + "px";
-
     button.style.width = "160px";
-
     text.textContent = "Searching...";
-
     button.disabled = true;
 }
 
