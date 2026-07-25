@@ -9,7 +9,7 @@ function showLoading(){
 
     const container = document.getElementById("results");
 
-    const cards = container.querySelectorAll(".icon-card");
+    
 
     cards.forEach(card => {
         card.classList.add("fade-out");
@@ -32,6 +32,8 @@ function showLoading(){
 
         return;
     }
+
+    const cards = container.querySelectorAll(".icon-card");
 
     clearResultsTimeout = setTimeout(() => {
         container.innerHTML = "";
@@ -94,7 +96,7 @@ function search(){
 
     script.onerror = function(){
 
-        hideLoading();
+        
 
         showMessage("Errore durante la ricerca.");
 
@@ -103,6 +105,7 @@ function search(){
     };
 
     document.body.appendChild(script);
+    hideLoading();
 }
 
 
