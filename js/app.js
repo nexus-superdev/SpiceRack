@@ -122,7 +122,7 @@ function displayIcons(results){
 
         const card = document.createElement("div");
 
-        card.className = "icon-card";
+        card.className = "icon-card fade-in";
 
         card.innerHTML = `
             <img src="${icon.url}">
