@@ -119,6 +119,18 @@ body{
   box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
+.icon-card{
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.icon-card:active{
+  transform:scale(.94);
+  box-shadow:0 2px 8px rgba(0,0,0,.18);
+}
+
 .icon-card img{
   width:48px;
   height:48px;
