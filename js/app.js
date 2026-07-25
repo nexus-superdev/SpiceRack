@@ -8,7 +8,15 @@ function showLoading(){
 
     const container = document.getElementById("results");
 
-        container.innerHTML = "";
+    const cards = container.querySelectorAll(".icon-card");
+
+cards.forEach(card => {
+    card.classList.add("fade-out");
+});
+
+setTimeout(() => {
+    container.innerHTML = "";
+}, 250);
 
     if(window.innerWidth <= 700){
 
