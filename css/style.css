@@ -111,19 +111,19 @@ body{
   padding:18px;
   text-align:center;
   cursor:pointer;
-  transition:.15s;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
 .icon-card:hover{
   border-color:var(--primary);
   box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.icon-card{
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .icon-card:active{
